@@ -1,0 +1,58 @@
+{
+  "docs": [
+    {
+      "doc_id": 1,
+      "name": "Mohit Tandon",
+      "specialize": "Cardiology",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2021/12/mohit-770x770.jpg"
+    },
+    {
+      "doc_id": 2,
+      "name": "Anurag Mehrotra",
+      "specialize": "Neurology",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2021/12/DR-ANURAG-SIR-NEW-IMAGE-770x770.png"
+    },
+    {
+      "doc_id": 3,
+      "name": "Ragesh Rastogi",
+      "specialize": "Cardiology",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2021/12/rajesh-770x770.jpg"
+    },
+    {
+      "doc_id": 4,
+      "name": "Ashima Malhotra",
+      "specialize": "Neurology",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2021/12/ashima-770x770.jpg"
+    },
+    {
+      "doc_id": 5,
+      "name": "Gesu Malhotra",
+      "specialize": "Cardiology",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2021/12/gesu-770x770.jpg"
+    },
+    {
+      "doc_id": 6,
+      "name": "Neha Chandra",
+      "specialize": "Cardiology",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2021/12/n-770x770.jpg"
+    },
+    {
+      "doc_id": 7,
+      "name": "Rohit Garg",
+      "specialize": "Neurology",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2021/12/madhu-770x770.jpg"
+    },
+    {
+      "doc_id": 8,
+      "name": "Johnny R. Atterberry",
+      "specialize": "Medecine",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2022/06/Dr.-Abhay-Singh-770x770.png"
+    },
+    {
+      "doc_id": 9,
+      "name": "Poonam Singh",
+      "specialize": "Medecine",
+      "doc_img": "https://www.siddhhospital.org/wp-content/uploads/2023/10/Dr.-Poonam-Singh.png"
+    }
+  ]
+}
