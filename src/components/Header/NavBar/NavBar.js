@@ -97,7 +97,7 @@ const Navbar = () => {
                                     bgcolor="primary"
                                     component={HashLink}
                                     smooth to='/home#home'
-                                >home
+                                >Home
                                 </MenuItem>
 
                                 <MenuItem

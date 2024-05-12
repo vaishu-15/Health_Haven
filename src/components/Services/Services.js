@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
 const Services = () => {
-    // const [ourServices, setOurServices] = useState([])
     const services = useData();
     const history = useHistory();
     const ServiceDetails = (servId) => {

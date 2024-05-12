@@ -97,7 +97,8 @@ const ServiceDetails = () => {
                       </Typography>
                     </CardActions>
                     <Typography gutterBottom variant="h6" component="div">
-                      Consult fee {service.price}
+                      Consult fee ₹{service.price}{" "}
+                      {/* Here, ₹ represents the Indian Rupee symbol */}
                     </Typography>
                     <HashLink smooth to="/appointment" className="text-style">
                       <Button
