@@ -7,19 +7,9 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import swal from 'sweetalert';
 import LoadingScreen from '../../LoadingScreen/LoadingScreen';
 
-
 const Doctors = () => {
     const doctors = useDocData();
 
-    const swalAlert = () => {
-        console.log('swal is clicked');
-        return swal("Write the data here:", {
-            content: "input",
-        })
-            .then((value) => {
-                swal(`You Appointment data is :➥ ${value} You will get a confirmation Email soon if the slot is free. We are trying to make it automated asap. Till then be patient`);
-            });
-    }
     return (
       <div id="doctors">
         {doctors[0].length > 1 ? (
@@ -93,15 +83,20 @@ const Doctors = () => {
                           </Typography>
                         </CardActionArea>
                         <CardActions sx={{ textAlign: "center" }}>
-                          <Button
-                            onClick={swalAlert}
-                            sx={{ mt: 2, mb: 1 }}
-                            variant="contained"
-                            className="CheckButton"
+                          <HashLink
+                            smooth
+                            to={`/appointment#${doctor.name}`}
+                            className="text-style"
                           >
-                            Make an Appointment
-                            <AddCircleIcon />
-                          </Button>
+                            <Button
+                              sx={{ mt: 2, mb: 1 }}
+                              variant="contained"
+                              className="CheckButton"
+                            >
+                              Make an Appointment
+                              <AddCircleIcon />
+                            </Button>
+                          </HashLink>
                         </CardActions>
                       </Card>
                     </Grid>

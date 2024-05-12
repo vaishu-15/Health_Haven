@@ -15,7 +15,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import swal from "sweetalert";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
@@ -30,7 +31,14 @@ const Appointment = () => {
   const [email, setEmail] = useState(user.email);
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [problemType, setProblemType] = useState("");
-  const [isFormValid, setIsFormValid] = useState(false);
+
+  const { doctorName } = useParams();
+
+  useEffect(() => {
+    if (doctorName) {
+      setDocName(doctorName);
+    }
+  }, [doctorName]);
 
   const handleDocNameChange = (event) => {
     setDocName(event.target.value);
@@ -52,8 +60,6 @@ const Appointment = () => {
     setProblemType(event.target.value);
   };
 
-  // const notify = () => toast("Enter the required fields");
-
   const validateForm = () => {
     return docName !== "" && name !== "" && email !== "" && problemType !== "";
   };
@@ -62,14 +68,12 @@ const Appointment = () => {
     if (validateForm()) {
       swalAlert();
     } else {
-      // Handle form submission error
-      // notify();
       alert("Enter the required fields");
     }
   };
 
   const swalAlert = () => {
-    return swal("Your Appointment is Done You will Receive a mail ASAP.", {
+    return swal("Your Appointment is Done. You will Receive a mail ASAP.", {
       button: false,
       icon: "success",
     });
@@ -92,7 +96,7 @@ const Appointment = () => {
             mb: 5,
           }}
         >
-          Select your time and data for Appointment
+          Select your time and date for Appointment
         </Typography>
 
         <FormControl sx={{ mb: 5, minWidth: "50%" }}>
@@ -121,6 +125,7 @@ const Appointment = () => {
             <MenuItem value={19}>Poonam Singh</MenuItem>
           </Select>
         </FormControl>
+
         <TextField
           sx={{ mb: 2 }}
           value={name}
@@ -134,7 +139,7 @@ const Appointment = () => {
           value={email}
           onChange={handleEmailChange}
           fullWidth
-          label="Your Mail"
+          label="Your Email"
           id="email"
         />
 
@@ -158,7 +163,7 @@ const Appointment = () => {
           value={problemType}
           onChange={handleProblemTypeChange}
           fullWidth
-          label="Problem type"
+          label="Problem Type"
           id="problemType"
         />
 
@@ -171,7 +176,6 @@ const Appointment = () => {
           <AddCircleIcon /> Confirm
         </Button>
       </Container>
-      {/* <ToastContainer /> */}
     </Box>
   );
 };
