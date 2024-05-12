@@ -21,6 +21,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import swal from "sweetalert";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import useAuth from "../../../Hooks/useAuth";
+import { useLocation } from "react-router-dom";
 //  import { ToastContainer, toast } from "react-toastify";
 //  import "react-toastify/dist/ReactToastify.css";
 
@@ -31,14 +32,15 @@ const Appointment = () => {
   const [email, setEmail] = useState(user.email);
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [problemType, setProblemType] = useState("");
+  const location = useLocation();
 
-  const { doctorName } = useParams();
-
-  useEffect(() => {
-    if (doctorName) {
-      setDocName(doctorName);
-    }
-  }, [doctorName]);
+  // useEffect(() => {
+  //   const hash = location.hash;
+  //   if (hash) {
+  //     const doctorName = hash.substring(1); // Remove the '#' from the hash
+  //     setDocName(doctorName);
+  //   }
+  // }, [location.hash]);
 
   const handleDocNameChange = (event) => {
     setDocName(event.target.value);

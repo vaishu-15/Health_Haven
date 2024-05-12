@@ -85,7 +85,7 @@ const Doctors = () => {
                         <CardActions sx={{ textAlign: "center" }}>
                           <HashLink
                             smooth
-                            to={`/appointment#${doctor.name}`}
+                            to={`/appointment#${doctor.name}`} // Pass the selected doctor's name as part of the URL hash
                             className="text-style"
                           >
                             <Button
