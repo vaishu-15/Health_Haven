@@ -20,7 +20,6 @@ const Root = styled('div')(({ theme }) => ({
     },
 }));
 
-// copyright function for generate year automatically
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
