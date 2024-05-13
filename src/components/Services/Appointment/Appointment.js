@@ -23,6 +23,8 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import useAuth from "../../../Hooks/useAuth";
 import { useLocation } from "react-router-dom";
 import { Dialog, DialogContent } from "@mui/material";
+import { useHistory } from "react-router-dom";
+import AppointmentList from "./AppointmentList.js";
 
 //  import { ToastContainer, toast } from "react-toastify";
 //  import "react-toastify/dist/ReactToastify.css";
@@ -37,15 +39,8 @@ const Appointment = () => {
   const location = useLocation();
   const [modalOpen, setModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-
-  // useEffect(() => {
-  //   const hash = location.hash;
-  //   if (hash) {
-  //     const doctorName = hash.substring(1); // Remove the '#' from the hash
-  //     setDocName(doctorName);
-  //   }
-  // }, [location.hash]);
+  const [appointments, setAppointments] = useState([]);
+  const history = useHistory();
 
   const handleDocNameChange = (event) => {
     setDocName(event.target.value);
@@ -60,9 +55,9 @@ const Appointment = () => {
     // Regular expression to allow only alphabets and spaces
     const regex = /^[a-zA-Z\s]*$/;
 
-     if (regex.test(inputValue) && inputValue.length <= 30) {
-       setName(inputValue);
-     }
+    if (regex.test(inputValue) && inputValue.length <= 30) {
+      setName(inputValue);
+    }
   };
 
   const handleEmailChange = (event) => {
@@ -71,28 +66,28 @@ const Appointment = () => {
     // Regular expression for email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-     if (emailRegex.test(inputValue) && inputValue.length <= 30) {
-       setEmail(inputValue);
-     }
+    if (emailRegex.test(inputValue) && inputValue.length <= 30) {
+      setEmail(inputValue);
+    }
   };
 
   const handleAppointmentDateChange = (newValue) => {
     setAppointmentDate(newValue);
   };
 
- const handleProblemTypeChange = (event) => {
-   let inputValue = event.target.value;
+  const handleProblemTypeChange = (event) => {
+    let inputValue = event.target.value;
 
-   // Replace consecutive spaces with a single space
-   inputValue = inputValue.replace(/\s{2,}/g, " ");
+    // Replace consecutive spaces with a single space
+    inputValue = inputValue.replace(/\s{2,}/g, " ");
 
-   // Regular expression to allow only alphabets and spaces
-   const regex = /^[a-zA-Z\s]*$/;
+    // Regular expression to allow only alphabets and spaces
+    const regex = /^[a-zA-Z\s]*$/;
 
-   if (regex.test(inputValue) && inputValue.length <= 40) {
-    setProblemType(inputValue);
-  }
- };
+    if (regex.test(inputValue) && inputValue.length <= 40) {
+      setProblemType(inputValue);
+    }
+  };
 
   const validateForm = () => {
     return docName !== "" && name !== "" && email !== "" && problemType !== "";
@@ -100,6 +95,26 @@ const Appointment = () => {
 
   const handleSubmit = () => {
     if (validateForm()) {
+      // Create a new appointment object
+      const newAppointment = {
+        docName,
+        name,
+        email,
+        appointmentDate,
+        problemType,
+      };
+
+      // Update the appointments state with the new appointment
+      setAppointments([...appointments, newAppointment]);
+
+      // Clear form fields
+      setDocName("");
+      setName("");
+      setEmail("");
+      setAppointmentDate(new Date());
+      setProblemType("");
+
+      // Show success message or perform other actions
       swalAlert();
     } else {
       setErrorMessage("Please enter all the required fields.");
@@ -107,9 +122,9 @@ const Appointment = () => {
     }
   };
 
-const handleCloseModal = () => {
-  setModalOpen(false);
-};
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
 
   const swalAlert = () => {
     return swal("Your Appointment is Done. You will Receive a mail ASAP.", {
@@ -153,15 +168,17 @@ const handleCloseModal = () => {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={10}>Mohit Tondon</MenuItem>
-            <MenuItem value={11}>Anurag Mahrotra</MenuItem>
-            <MenuItem value={12}>Ragesh Rastogi</MenuItem>
-            <MenuItem value={13}>Ashima Malhotra</MenuItem>
-            <MenuItem value={14}>Gesu Malhotra</MenuItem>
-            <MenuItem value={16}>Neha Chandra</MenuItem>
-            <MenuItem value={17}>Rohit Garg</MenuItem>
-            <MenuItem value={18}>Johnny R. Atterberry</MenuItem>
-            <MenuItem value={19}>Poonam Singh</MenuItem>
+            <MenuItem value="Mohit Tondon">Mohit Tondon</MenuItem>
+            <MenuItem value="Anurag Mahrotra">Anurag Mahrotra</MenuItem>
+            <MenuItem value="Ragesh Rastogi">Ragesh Rastogi</MenuItem>
+            <MenuItem value="Ashima Malhotra">Ashima Malhotra</MenuItem>
+            <MenuItem value="Gesu Malhotra">Gesu Malhotra</MenuItem>
+            <MenuItem value="Neha Chandra">Neha Chandra</MenuItem>
+            <MenuItem value="Rohit Garg">Rohit Garg</MenuItem>
+            <MenuItem value="Johnny R. Atterberry">
+              Johnny R. Atterberry
+            </MenuItem>
+            <MenuItem value="Poonam Singh">Poonam Singh</MenuItem>
           </Select>
         </FormControl>
 
@@ -220,6 +237,7 @@ const handleCloseModal = () => {
         <Dialog open={modalOpen} onClose={handleCloseModal}>
           <DialogContent>{errorMessage}</DialogContent>
         </Dialog>
+        <AppointmentList appointments={appointments} />
       </Container>
     </Box>
   );
