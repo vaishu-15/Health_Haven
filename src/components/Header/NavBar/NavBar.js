@@ -1,6 +1,5 @@
 import { AppBar, Avatar, Box, Button, Container, Divider, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
 import React,{useState} from 'react';
-import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import HealingTwoToneIcon from '@mui/icons-material/HealingTwoTone';
 import './NavBar.css'
@@ -9,7 +8,6 @@ import { useHistory } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import Dialog from "../../common/dialog.js";
 
-// const pages = ['home', 'services', 'doctors', 'Appointment', 'about', 'login'];
 const settings = [ 'Logout'];
 
 const Navbar = () => {
