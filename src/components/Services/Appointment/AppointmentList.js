@@ -22,7 +22,7 @@ const AppointmentList = ({ appointments }) => {
     >
       <Container maxWidth="xl">
         <Typography variant="h6" sx={{ mt: 5, mb: 3 }}>
-        //   Appointment List
+           Appointment List
         </Typography>
         <Box sx={{ overflowX: "auto" }}>
           <Table>

@@ -126,10 +126,6 @@ const Appointment = () => {
     setModalOpen(false);
   };
 
-  const handleViewAppointments = () => {
-    history.push("/appointment-list");
-  };
-
   const swalAlert = () => {
     return swal("Your Appointment is Done. You will Receive a mail ASAP.", {
       button: false,
@@ -241,9 +237,6 @@ const Appointment = () => {
         <Dialog open={modalOpen} onClose={handleCloseModal}>
           <DialogContent>{errorMessage}</DialogContent>
         </Dialog>
-        <Button onClick={handleViewAppointments} sx={{ mb: 5 }}>
-          Appointments
-        </Button>
         <AppointmentList appointments={appointments} />
       </Container>
     </Box>
