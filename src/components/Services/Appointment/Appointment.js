@@ -42,6 +42,13 @@ const Appointment = () => {
   const [appointments, setAppointments] = useState([]);
   const history = useHistory();
 
+   useEffect(() => {
+     const storedAppointments = localStorage.getItem("appointments");
+     if (storedAppointments) {
+       setAppointments(JSON.parse(storedAppointments));
+     }
+   }, []);
+
   const handleDocNameChange = (event) => {
     setDocName(event.target.value);
   };
@@ -113,7 +120,10 @@ const Appointment = () => {
       setEmail("");
       setAppointmentDate(new Date());
       setProblemType("");
-
+      localStorage.setItem(
+          "appointments",
+          JSON.stringify([...appointments, newAppointment])
+        );
       // Show success message or perform other actions
       swalAlert();
     } else {
