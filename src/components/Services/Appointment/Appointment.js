@@ -52,11 +52,28 @@ const Appointment = () => {
   };
 
   const handleNameChange = (event) => {
-    setName(event.target.value);
+    let inputValue = event.target.value;
+
+    // Replace consecutive spaces with a single space
+    inputValue = inputValue.replace(/\s{2,}/g, " ");
+
+    // Regular expression to allow only alphabets and spaces
+    const regex = /^[a-zA-Z\s]*$/;
+
+     if (regex.test(inputValue) && inputValue.length <= 30) {
+       setName(inputValue);
+     }
   };
 
   const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+    const inputValue = event.target.value;
+
+    // Regular expression for email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+     if (emailRegex.test(inputValue) && inputValue.length <= 30) {
+       setEmail(inputValue);
+     }
   };
 
   const handleAppointmentDateChange = (newValue) => {
@@ -72,9 +89,9 @@ const Appointment = () => {
    // Regular expression to allow only alphabets and spaces
    const regex = /^[a-zA-Z\s]*$/;
 
-   if (regex.test(inputValue)) {
-     setProblemType(inputValue);
-   }
+   if (regex.test(inputValue) && inputValue.length <= 40) {
+    setProblemType(inputValue);
+  }
  };
 
   const validateForm = () => {
@@ -155,6 +172,7 @@ const handleCloseModal = () => {
           fullWidth
           label="Your Name"
           id="fullName"
+          maxLength={20}
         />
         <TextField
           sx={{ mb: 2 }}
@@ -163,6 +181,7 @@ const handleCloseModal = () => {
           fullWidth
           label="Your Email"
           id="email"
+          maxLength={20}
         />
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -187,6 +206,7 @@ const handleCloseModal = () => {
           fullWidth
           label="Problem Type"
           id="problemType"
+          maxLength={20}
         />
 
         <Button
