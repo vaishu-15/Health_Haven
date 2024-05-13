@@ -15,13 +15,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import swal from "sweetalert";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import useAuth from "../../../Hooks/useAuth";
 import { useLocation } from "react-router-dom";
+import { Dialog, DialogContent } from "@mui/material";
+
 //  import { ToastContainer, toast } from "react-toastify";
 //  import "react-toastify/dist/ReactToastify.css";
 
@@ -33,6 +35,9 @@ const Appointment = () => {
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [problemType, setProblemType] = useState("");
   const location = useLocation();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
 
   // useEffect(() => {
   //   const hash = location.hash;
@@ -58,9 +63,19 @@ const Appointment = () => {
     setAppointmentDate(newValue);
   };
 
-  const handleProblemTypeChange = (event) => {
-    setProblemType(event.target.value);
-  };
+ const handleProblemTypeChange = (event) => {
+   let inputValue = event.target.value;
+
+   // Replace consecutive spaces with a single space
+   inputValue = inputValue.replace(/\s{2,}/g, " ");
+
+   // Regular expression to allow only alphabets and spaces
+   const regex = /^[a-zA-Z\s]*$/;
+
+   if (regex.test(inputValue)) {
+     setProblemType(inputValue);
+   }
+ };
 
   const validateForm = () => {
     return docName !== "" && name !== "" && email !== "" && problemType !== "";
@@ -70,9 +85,14 @@ const Appointment = () => {
     if (validateForm()) {
       swalAlert();
     } else {
-      alert("Enter the required fields");
+      setErrorMessage("Please enter all the required fields.");
+      setModalOpen(true);
     }
   };
+
+const handleCloseModal = () => {
+  setModalOpen(false);
+};
 
   const swalAlert = () => {
     return swal("Your Appointment is Done. You will Receive a mail ASAP.", {
@@ -177,6 +197,9 @@ const Appointment = () => {
         >
           <AddCircleIcon /> Confirm
         </Button>
+        <Dialog open={modalOpen} onClose={handleCloseModal}>
+          <DialogContent>{errorMessage}</DialogContent>
+        </Dialog>
       </Container>
     </Box>
   );
