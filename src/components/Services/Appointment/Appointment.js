@@ -26,9 +26,6 @@ import { Dialog, DialogContent } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import AppointmentList from "./AppointmentList.js";
 
-//  import { ToastContainer, toast } from "react-toastify";
-//  import "react-toastify/dist/ReactToastify.css";
-
 const Appointment = () => {
   const { user } = useAuth();
   const [docName, setDocName] = useState("");
