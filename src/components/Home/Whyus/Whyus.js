@@ -5,7 +5,6 @@ import { HashLink } from 'react-router-hash-link';
 import useData from '../../../Hooks/useData';
 import './Whyus.css'
 
-
 const Whyus = () => {
   const [ourServices, setOurServices] = useState([]);
   const mainData = useData();

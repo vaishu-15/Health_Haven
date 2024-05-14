@@ -41,10 +41,13 @@ const Navbar = () => {
        setConfirmationOpen(true); // Open confirmation dialog
      };
 
-     const handleLogoutConfirmed = () => {
-       logout();
-       setConfirmationOpen(false); // Close confirmation dialog
-     };
+      const handleLogoutConfirmed = () => {
+        // Clear localStorage
+        localStorage.clear();
+        // Logout user
+        logout();
+        setConfirmationOpen(false); // Close confirmation dialog
+      };
 
      const handleLogoutCancelled = () => {
        setConfirmationOpen(false); // Close confirmation dialog
