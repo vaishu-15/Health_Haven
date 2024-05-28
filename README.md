@@ -58,11 +58,11 @@ Navigate to Project Directory:
 
 Install Dependencies:
 
-<b>npm install</b>
+<h3><b>npm install</b></h3>
 
 Run the Project:
 
-<b>npm start</b>
+<h3><b>npm start</b></h3>
 
 This will start the project on your local server.
 
