@@ -15,11 +15,13 @@ Google Signup: Alternatively, you can sign up using your Google account by click
 Generate Firebase Credentials: To get your Firebase credentials, follow these steps:
 
   1.Go to the Firebase Console and log in with your Google account.
+  
   2.Click on Add project and follow the steps to create a new Firebase project.
   
   3.Once your project is created, go to Project settings by clicking on the gear icon.
   
   4.In your apps section, click on Add app and select the platform (e.g., web).
+  
   5.Follow the instructions to register the app and get your Firebase configuration.
 
 2. Where to Enter Your Credentials
@@ -27,7 +29,9 @@ Generate Firebase Credentials: To get your Firebase credentials, follow these st
 Your credentials need to be entered in the Firebase configuration file of the project. Follow these steps:
 
 Locate Configuration File: Find the firebase.config.js file in the root directory of the project.
+
 Open File: Open firebase.config.js with a text editor.
+
 Insert Credentials: Replace the placeholder values with your actual credentials. The file should look like this:
 
 const firebaseConfig = {
@@ -43,6 +47,7 @@ const firebaseConfig = {
 export default firebaseConfig;
 
 4. How to Install and Run
+ 
 To install and run the project, follow these steps:
 
 Clone Repository:
