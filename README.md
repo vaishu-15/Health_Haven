@@ -1,4 +1,4 @@
-<h1><b>Health Haven</b></h1>
+<h1><b>Health Haven Hospital</b></h1>
 
 Welcome to our Website! This README file provides instructions on how to set up your credentials, where to enter them, how to install and run the project, and the link to the live website.
 
