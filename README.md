@@ -57,9 +57,11 @@ git clone https://github.com/vaishu-15/Health_Heaven.git
 Navigate to Project Directory:
 
 Install Dependencies:
+
 <b>npm install</b>
 
 Run the Project:
+
 <b>npm start</b>
 
 This will start the project on your local server.
