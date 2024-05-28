@@ -2,11 +2,11 @@
 
 Welcome to our Website! This README file provides instructions on how to set up your credentials, where to enter them, how to install and run the project, and the link to the live website.
 
-<b>1. Procedure to Make Your Credentials</b>
+<h3><b>1. Procedure to Make Your Credentials</b></h3>
 
 To use this project, you need to create your credentials by following these steps:
 
-Sign Up:
+<b>Sign Up:</b>
 
 Standard Signup: Go to the registration page on our website and fill in the required details.
 
@@ -24,7 +24,7 @@ Generate Firebase Credentials: To get your Firebase credentials, follow these st
   
   5.Follow the instructions to register the app and get your Firebase configuration.
 
-<b>2. Where to Enter Your Credentials</b>
+<h3><b>2. Where to Enter Your Credentials</b></h3>
 
 Your credentials need to be entered in the Firebase configuration file of the project. Follow these steps:
 
@@ -46,7 +46,7 @@ const firebaseConfig = {
 
 export default firebaseConfig;
 
-<b>3. How to Install and Run</b>
+<h3><b>3. How to Install and Run</b></h3>
  
 To install and run the project, follow these steps:
 
@@ -66,7 +66,7 @@ Run the Project:
 
 This will start the project on your local server.
 
-<b>4. Live Website Link</b>
+<h3><b>4. Live Website Link</b></h3>
  
 You can access the live version of the project at the following link: 
 
