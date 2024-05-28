@@ -2,7 +2,7 @@
 
 Welcome to our Website! This README file provides instructions on how to set up your credentials, where to enter them, how to install and run the project, and the link to the live website.
 
-1. Procedure to Make Your Credentials
+<b>1. Procedure to Make Your Credentials</b>
 
 To use this project, you need to create your credentials by following these steps:
 
@@ -24,7 +24,7 @@ Generate Firebase Credentials: To get your Firebase credentials, follow these st
   
   5.Follow the instructions to register the app and get your Firebase configuration.
 
-2. Where to Enter Your Credentials
+<b>2. Where to Enter Your Credentials</b>
 
 Your credentials need to be entered in the Firebase configuration file of the project. Follow these steps:
 
@@ -46,7 +46,7 @@ const firebaseConfig = {
 
 export default firebaseConfig;
 
-4. How to Install and Run
+<b>3. How to Install and Run</b>
  
 To install and run the project, follow these steps:
 
@@ -57,14 +57,14 @@ git clone https://github.com/vaishu-15/Health_Heaven.git
 Navigate to Project Directory:
 
 Install Dependencies:
-npm install
+<b>npm install</b>
 
 Run the Project:
-npm start
+<b>npm start</b>
 
 This will start the project on your local server.
 
-4. Live Website Link
+<b>4. Live Website Link</b>
  
 You can access the live version of the project at the following link: 
 
